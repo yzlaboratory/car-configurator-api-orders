@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.Instant;
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.UUID;
 
 @Entity
@@ -32,9 +33,9 @@ public class Order {
 
     @PrePersist
     protected void onCreate() {
-        this.createdAt = OffsetDateTime.from(Instant.now());
-        this.updatedAt = OffsetDateTime.from(Instant.now());
-        this.orderTimestamp = OffsetDateTime.from(Instant.now());
+        this.createdAt = OffsetDateTime.now(ZoneOffset.UTC);
+        this.updatedAt = OffsetDateTime.now(ZoneOffset.UTC);
+        this.orderTimestamp = OffsetDateTime.now(ZoneOffset.UTC);
         this.status = "pending";
     }
 
