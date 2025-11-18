@@ -26,26 +26,19 @@ public class OrdersController {
         return "<h1>Hello World, its me the Status Controller of your friend api-orders</h1>";
     }
 
-    @PostMapping()
-    public ResponseEntity<Order> postConfig(@RequestBody Order order) {
-        //fill orderid
-        //this.dynamoDbService.saveConfig(config);
-        return new ResponseEntity<>(order, HttpStatus.CREATED);
-    }
-
     @GetMapping
     public List<Order> getOrders() {
         return service.getAllOrders();
     }
 
     @PostMapping
-    public ResponseEntity<Order> createConfiguration(@RequestBody Order order) {
+    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         Order savedConfig = service.saveOrder(order);
         return new ResponseEntity<>(savedConfig, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Order> getConfigurationById(@PathVariable UUID id) {
+    public ResponseEntity<Order> getOrderById(@PathVariable UUID id) {
         return service.getOrderById(id)
                 .map(config -> new ResponseEntity<>(config, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));

@@ -9,11 +9,11 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 @SpringBootTest
 class ApiOrdersTests {
 
-	@MockitoBean
+/*	@MockitoBean
 	OrdersService service;
 
 	@MockitoBean
-	OrdersRepository repository;
+	OrdersRepository repository;*/
 
 	@Test
 	void contextLoads() {
