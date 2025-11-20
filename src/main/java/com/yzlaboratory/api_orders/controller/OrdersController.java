@@ -11,6 +11,7 @@ import java.util.UUID;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/orders")
 public class OrdersController {
 
